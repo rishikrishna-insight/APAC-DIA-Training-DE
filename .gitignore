@@ -171,7 +171,7 @@ test_data/
 # Exclude large datasets but keep samples
 data_raw/*
 !data_raw/README.md
-!data_raw/samples/
+!data_raw/sample/
 
 # Exclude full lake but keep structure and samples  
 lake/bronze/parquet/*

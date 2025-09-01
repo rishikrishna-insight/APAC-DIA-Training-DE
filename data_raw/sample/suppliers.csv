@@ -1,0 +1,81 @@
+supplier_id,supplier_code,name,country_code,lead_time_days,preferred
+1,SUP-XAJI0Y,Harris-Landry,IN,12,False
+2,SUP-BDIVUZ,Turner  Mcgee and Hill,GB,70,False
+3,SUP-QK51FP,Bradshaw-Mooney,US,20,True
+4,SUP-1DNMMJ,Cook-Smith,AU,59,False
+5,SUP-9NT3W5,Lawrence Ltd,IN,25,False
+6,SUP-BIKCID,Harrison-Alvarado,US,59,False
+7,SUP-NNHJ7X,Roach Ltd,IN,82,True
+8,SUP-0FN9XU,Elliott  Newton and Powell,GB,42,False
+9,SUP-1IBLJH,Wong-Miller,IN,41,True
+10,SUP-R5XFF0,Smith-Quinn,IN,34,False
+11,SUP-PVN9ER,Sanchez  Perez and Graham,AU,15,True
+12,SUP-FYVNVQ,Wallace and Sons,US,71,False
+13,SUP-AZYTJX,Wallace LLC,AU,38,False
+14,SUP-Q85JSG,Chapman LLC,AU,81,True
+15,SUP-XVF1T2,Peck Ltd,IN,1,False
+16,SUP-REN93I,King-Hansen,NZ,73,False
+17,SUP-DRC11E,Simpson-Ramos,CN,71,True
+18,SUP-SV871Y,Mclean  Rodriguez and Gregory,GB,40,False
+19,SUP-YN6QIC,Nguyen  Woodward and Cummings,AU,76,False
+20,SUP-VAZCCB,Williamson-Cox,US,10,False
+21,SUP-KRT05U,Blake LLC,NZ,61,False
+22,SUP-GDPPQ0,Farrell-Lin,GB,84,False
+23,SUP-DOM5IG,Robinson-Allen,CN,18,False
+24,SUP-KI7P5T,Meyer  Bennett and Wood,AU,84,False
+25,SUP-4874FR,Ortiz  Peters and Thomas,NZ,52,False
+26,SUP-FAO72K,Hancock Group,GB,72,False
+27,SUP-RGHC0C,Jefferson Group,US,8,True
+28,SUP-R7TCS4,Williams Ltd,AU,77,True
+29,SUP-5O7UUB,Kennedy  Erickson and Watson,AU,54,False
+30,SUP-ULJYLJ,Williams PLC,NZ,86,False
+31,SUP-Q77AWU,Reid PLC,AU,10,False
+32,SUP-SEMCIK,Ibarra LLC,CN,70,False
+33,SUP-W9XA3K,Flores LLC,GB,14,False
+34,SUP-EEDTJV,Baker-Bean,GB,44,True
+35,SUP-WJR64D,Watkins-Jones,CN,36,True
+36,SUP-ME9FPZ,Smith  Page and Gomez,IN,2,True
+37,SUP-8YFBNT,Douglas  Gilbert and Mitchell,CN,17,True
+38,SUP-N78BMY,Torres  Dalton and Bennett,GB,14,False
+39,SUP-U5907I,Williams-Smith,NZ,23,False
+40,SUP-A0L725,Maynard and Sons,NZ,35,True
+41,SUP-ZNBQH7,Payne  Morgan and Tate,US,40,False
+42,SUP-5IXOKC,Johnson-Delgado,US,45,False
+43,SUP-O9T7E8,Smith  Lucas and Diaz,NZ,75,False
+44,SUP-JDP0LV,Mosley-Page,IN,15,False
+45,SUP-UJZA7T,Fuentes  Carson and Ruiz,GB,86,True
+46,SUP-P87WXE,Campbell-Escobar,US,65,False
+47,SUP-OOKEP7,Miller-Sawyer,GB,23,False
+48,SUP-KTAKPU,Ellis  King and Aguilar,GB,42,False
+49,SUP-PHR62G,Cruz Group,AU,37,False
+50,SUP-WM31YI,Bryant PLC,NZ,19,True
+51,SUP-IR4COW,Kelly-Lewis,NZ,90,False
+52,SUP-OFY645,Smith  Mccoy and Patterson,CN,29,True
+53,SUP-8SBI4Q,Rodriguez  Williamson and Green,CN,86,False
+54,SUP-UL1P36,Black-Perkins,CN,71,False
+55,SUP-F5Q14J,Collins-Aguilar,IN,63,False
+56,SUP-JCKJLT,Golden Inc,NZ,20,True
+57,SUP-YZCOTO,Reyes-Trevino,NZ,54,False
+58,SUP-18A5UR,Fischer-Dixon,US,39,False
+59,SUP-48P0TV,Wilson LLC,NZ,63,True
+60,SUP-PBMYOF,Sherman-Zamora,CN,17,False
+61,SUP-T6VXDP,Mckinney Ltd,CN,24,True
+62,SUP-NHL1N1,Smith  Schwartz and Larson,CN,33,False
+63,SUP-Q0B8IC,Kim  Cantu and Kim,GB,6,False
+64,SUP-8HAFEY,Sawyer-Sanders,IN,28,False
+65,SUP-JNV8Z2,Yang LLC,NZ,40,True
+66,SUP-ALY8OZ,Howard Inc,AU,76,False
+67,SUP-WD14VE,Duran Group,IN,6,False
+68,SUP-PNSM43,Blanchard Ltd,AU,56,False
+69,SUP-W3ZP08,Cunningham  Chung and Walker,US,79,False
+70,SUP-TRP0J4,Reynolds and Sons,AU,36,False
+71,SUP-IQVNB4,Lopez LLC,NZ,63,True
+72,SUP-2M5ZJA,Hardin-Wilson,NZ,11,True
+73,SUP-OTIRZQ,Green-Sheppard,AU,12,True
+74,SUP-OIXNTM,Brown-Larson,GB,71,False
+75,SUP-ZJJEGE,Wilson-Middleton,IN,89,True
+76,SUP-HR09SK,Brooks  Tapia and Brown,AU,25,True
+77,SUP-MKZEBB,Kerr and Sons,US,90,False
+78,SUP-W1DAKR,Bennett  Werner and Hays,US,24,False
+79,SUP-J5ECRU,Hernandez-Brown,GB,7,True
+80,SUP-38DIUO,Patel LLC,IN,80,True
