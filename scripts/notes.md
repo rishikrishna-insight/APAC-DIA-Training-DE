@@ -14,4 +14,5 @@
 - `exchange_rates`
 - `shipments`
 
-## Special
+## Special (Upsert + Schema Evolution)
+- 'returns'
