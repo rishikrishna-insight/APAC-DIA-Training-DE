@@ -149,7 +149,7 @@ cython_debug/
 #lake/
 #duckdb/
 #analytics/*.pbix
-*.duckdb
+!duckdb/*.duckdb
 *.duckdb.wal
 
 # Temporary files
@@ -180,3 +180,5 @@ lake/bronze/delta/*
 !lake/bronze/delta/.gitkeep
 !lake/bronze/parquet/customers/sample_*.parquet
 !lake/bronze/delta/customers/sample_*.parquet
+!lake/bronze/parquet/samples/
+!lake/bronze/delta/samples/
