@@ -1,0 +1,77 @@
+models:
+  - name: stg_shipments
+    description: "Staging model for shipments - exact schema mapping from shipments_schema"
+
+    tests:
+      # FK violation rate monitoring for order_id -> stg_orders_header
+      - fk_violation_rate:
+          column_name: order_id
+          to: ref('stg_orders_header')
+          field: order_id
+          max_violation_rate: 1.5
+
+    columns:
+      # Schema columns - exact mapping from shipments_schema
+      - name: shipment_id
+        data_type: bigint
+        description: "Unique shipment identifier"
+        tests:
+          - not_null
+          - unique
+
+      - name: order_id
+        data_type: bigint
+        description: "Order identifier - FK to orders_header"
+        tests:
+          - not_null
+          - relationships:
+              to: ref('stg_orders_header')
+              field: order_id
+              config:
+                severity: warn
+
+      - name: carrier
+        data_type: varchar
+        description: "Shipping carrier name"
+        tests:
+          - not_null
+          - accepted_values:
+              values: ['DHL', 'FEDEX', 'UPS', 'AUSTRALIA POST', 'TNT']
+
+      - name: shipped_at
+        data_type: timestamp
+        description: "Timestamp when shipment was dispatched (UTC)"
+        tests:
+          - not_null
+
+      - name: delivered_at
+        data_type: timestamp
+        description: "Timestamp when shipment was delivered (UTC) - can be null for in-transit"
+
+      - name: ship_cost
+        data_type: decimal(12,2)
+        description: "Shipping cost"
+        tests:
+          - not_null
+          - dbt_utils.accepted_range:
+              min_value: 0
+              max_value: 1000
+
+      # Metadata columns (exceptions)
+      - name: ingestion_ts
+        data_type: timestamp
+        description: "UTC timestamp when record was ingested"
+        tests:
+          - not_null
+
+      - name: src_filename
+        data_type: varchar
+        description: "Source filename for traceability"
+        tests:
+          - not_null
+
+      - name: src_row_hash
+        data_type: varchar
+        description: "Hash of source row for change detection"
+        tests:
+          - not_null

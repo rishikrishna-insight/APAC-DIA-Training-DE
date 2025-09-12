@@ -1,0 +1,95 @@
+version: 2
+
+models:
+  - name: stg_returns
+    description: "Staging model for returns with flexible schema evolution support - dynamically handles new columns"
+
+    tests:
+      # FK violation rate monitoring for order_id -> stg_orders_header
+      - fk_violation_rate:
+          column_name: order_id
+          to: ref('stg_orders_header')
+          field: order_id
+          max_violation_rate: 1.5
+      
+      # FK violation rate monitoring for product_id -> stg_products  
+      - fk_violation_rate:
+          column_name: product_id
+          to: ref('stg_products')
+          field: product_id
+          max_violation_rate: 1.5
+
+    columns:
+      # Schema columns - exact mapping from returns_day1_schema
+      - name: return_id
+        data_type: bigint
+        description: "Unique return identifier"
+        tests:
+          - not_null
+          - unique
+
+      - name: order_id
+        data_type: bigint
+        description: "Order identifier - FK to orders_header"
+        tests:
+          - not_null
+          - relationships:
+              to: ref('stg_orders_header')
+              field: order_id
+              config:
+                severity: warn
+
+      - name: product_id
+        data_type: bigint
+        description: "Product identifier - FK to products"
+        tests:
+          - not_null
+          - relationships:
+              to: ref('stg_products')
+              field: product_id
+              config:
+                severity: warn
+
+      - name: return_ts
+        data_type: timestamp
+        description: "Timestamp when return was processed (UTC)"
+        tests:
+          - not_null
+
+      - name: qty
+        data_type: integer
+        description: "Quantity returned"
+        tests:
+          - dbt_utils.accepted_range:
+              min_value: 1
+              max_value: 1000
+
+      - name: reason
+        data_type: varchar
+        description: "Return reason"
+        tests:
+          - not_null
+          - accepted_values:
+              values: ['DEFECTIVE', 'WRONG ITEM', 'NO LONGER NEEDED', 'OTHER', 'UPDATED REASON', 'INSERTED REASON']
+
+      # Note: Additional columns from schema evolution (like return_reason_code) 
+      # are handled dynamically and don't need explicit column definitions
+
+      # Metadata columns (exceptions)
+      - name: ingestion_ts
+        data_type: timestamp
+        description: "UTC timestamp when record was ingested"
+        tests:
+          - not_null
+
+      - name: src_filename
+        data_type: varchar
+        description: "Source filename for traceability"
+        tests:
+          - not_null
+
+      - name: src_row_hash
+        data_type: varchar
+        description: "Hash of source row for change detection"
+        tests:
+          - not_null

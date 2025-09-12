@@ -1,0 +1,36 @@
+version: 2
+models:
+  - name: stg_suppliers
+    columns:
+      - name: supplier_id
+        data_type: BIGINT
+        tests: [not_null, unique]
+        
+      - name: supplier_code
+        data_type: VARCHAR
+        tests: [not_null, unique]
+
+      - name: name
+        data_type: VARCHAR
+        
+      - name: country_code
+        data_type: VARCHAR
+        
+      - name: lead_time_days
+        data_type: INTEGER
+        tests:
+          - dbt_utils.accepted_range:
+              min_value: 0
+              max_value: 365
+        
+      - name: preferred
+        data_type: BOOLEAN
+        
+      - name: ingestion_ts
+        data_type: TIMESTAMP
+        
+      - name: src_filename
+        data_type: VARCHAR
+        
+      - name: src_row_hash
+        data_type: VARCHAR

@@ -1,0 +1,66 @@
+version: 2
+models:
+  - name: stg_orders_header
+    columns:
+      - name: order_id
+        data_type: BIGINT
+        tests: [not_null, unique]
+        
+      - name: order_ts
+        data_type: TIMESTAMP
+
+      - name: order_dt_local
+        data_type: DATE
+        
+      - name: customer_id
+        data_type: BIGINT
+        tests: 
+          - relationships:
+              to: ref('stg_customers')
+              field: customer_id
+              severity: warn  # Allow some violations as per docs
+          - fk_violation_rate:
+              to: ref('stg_customers')
+              field: customer_id
+              max_violation_rate: 1.5
+        
+      - name: store_id
+        data_type: BIGINT
+        tests:
+          - relationships:
+              to: ref('stg_stores')
+              field: store_id
+              severity: warn  # Allow some violations as per docs
+          - fk_violation_rate:
+              to: ref('stg_stores')
+              field: store_id
+              max_violation_rate: 1.5
+        
+      - name: channel
+        data_type: VARCHAR
+        
+      - name: payment_method
+        data_type: VARCHAR
+        
+      - name: coupon_code
+        data_type: VARCHAR
+        
+      - name: shipping_fee
+        data_type: DECIMAL(12,2)
+        tests:
+          - dbt_utils.accepted_range:
+              min_value: 0
+              max_value: 1000
+              severity: warn
+        
+      - name: currency
+        data_type: VARCHAR
+        
+      - name: ingestion_ts
+        data_type: TIMESTAMP
+        
+      - name: src_filename
+        data_type: VARCHAR
+        
+      - name: src_row_hash
+        data_type: VARCHAR

@@ -3,4 +3,55 @@ models:
   - name: stg_customers
     columns:
       - name: customer_id
+        data_type: BIGINT
         tests: [not_null, unique]
+        
+      - name: natural_key
+        data_type: VARCHAR
+        tests: [not_null, unique]
+
+      - name: first_name
+        data_type: VARCHAR
+      - name: last_name
+        data_type: VARCHAR
+      - name: email
+        data_type: VARCHAR
+      - name: phone
+        data_type: VARCHAR
+
+      - name: address_line1
+        data_type: VARCHAR
+      - name: address_line2
+        data_type: VARCHAR
+      - name: postcode
+        data_type: VARCHAR
+      - name: state_region
+        data_type: VARCHAR
+      - name: country_code
+        data_type: VARCHAR
+
+      - name: latitude
+        data_type: DOUBLE
+        tests: [valid_latitude]
+      - name: longitude
+        data_type: DOUBLE
+        tests: [valid_longitude]
+
+      - name: birth_date
+        data_type: DATE
+      - name: is_vip
+        data_type: BOOLEAN
+      - name: join_ts
+        data_type: TIMESTAMP
+
+      - name: gdpr_consent
+        data_type: BOOLEAN
+      - name: city
+        data_type: VARCHAR 
+
+      - name: ingestion_ts
+        data_type: TIMESTAMP
+      - name: src_filename
+        data_type: VARCHAR
+      - name: src_row_hash
+        data_type: VARCHAR

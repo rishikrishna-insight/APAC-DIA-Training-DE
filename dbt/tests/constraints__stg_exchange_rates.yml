@@ -1,0 +1,48 @@
+models:
+  - name: stg_exchange_rates
+    description: "Staging model for exchange rates - exact schema mapping from exchange_rates_schema"
+
+    columns:
+      # Schema columns - exact mapping from exchange_rates_schema
+      - name: date
+        data_type: date
+        description: "Date for the exchange rate"
+        tests:
+          - not_null
+
+      - name: currency
+        data_type: varchar
+        description: "Currency code (e.g., USD, EUR, GBP)"
+        tests:
+          - not_null
+          - accepted_values:
+              values: ['USD', 'EUR', 'GBP', 'CNY', 'NZD', 'AUD']
+
+
+      - name: rate_to_aud
+        data_type: decimal(18,8)
+        description: "Exchange rate to Australian Dollar"
+        tests:
+          - dbt_utils.accepted_range:
+              arguments:
+                min_value: 0.001
+                max_value: 1000
+
+      # Metadata columns (exceptions)
+      - name: ingestion_ts
+        data_type: timestamp
+        description: "UTC timestamp when record was ingested"
+        tests:
+          - not_null
+
+      - name: src_filename
+        data_type: varchar
+        description: "Source filename for traceability"
+        tests:
+          - not_null
+
+      - name: src_row_hash
+        data_type: varchar
+        description: "Hash of source row for change detection"
+        tests:
+          - not_null

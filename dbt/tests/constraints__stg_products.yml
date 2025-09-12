@@ -1,0 +1,44 @@
+version: 2
+models:
+  - name: stg_products
+    columns:
+      - name: product_id
+        data_type: BIGINT
+        tests: [not_null, unique]
+        
+      - name: sku
+        data_type: VARCHAR
+        tests: [not_null, unique]
+
+      - name: name
+        data_type: VARCHAR
+        
+      - name: category
+        data_type: VARCHAR
+        
+      - name: subcategory
+        data_type: VARCHAR
+        
+      - name: current_price
+        data_type: DECIMAL(12,4)
+              
+      - name: currency
+        data_type: VARCHAR
+        
+      - name: is_discontinued
+        data_type: BOOLEAN
+        
+      - name: introduced_dt
+        data_type: DATE
+        
+      - name: discontinued_dt
+        data_type: DATE
+        
+      - name: ingestion_ts
+        data_type: TIMESTAMP
+        
+      - name: src_filename
+        data_type: VARCHAR
+        
+      - name: src_row_hash
+        data_type: VARCHAR

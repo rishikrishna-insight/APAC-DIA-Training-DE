@@ -1,0 +1,75 @@
+version: 2
+
+models:
+  - name: stg_events
+    description: "Staging table for event tracking data - user behavior analytics"
+    columns:
+      - name: event_id
+        description: "Unique event identifier"
+        data_type: varchar
+        constraints:
+          - type: not_null
+          - type: unique
+      
+      - name: event_ts
+        description: "Event timestamp (converted to UTC)"
+        data_type: timestamp
+      
+      - name: event_type
+        description: "Type of event"
+        data_type: varchar
+
+      - name: user_id
+        description: "User identifier"
+        data_type: integer
+        constraints:
+          - type: not_null
+      
+      - name: session_id
+        description: "Session identifier for grouping events"
+        data_type: varchar
+        constraints:
+          - type: not_null
+      
+      - name: purchase_order_id
+        description: "Order ID for purchase events"
+        data_type: integer
+      
+      - name: purchase_amount
+        description: "Amount for purchase events"
+        data_type: decimal(10,2)
+        tests:
+          - dbt_utils.accepted_range:
+              min_value: 0
+              max_value: 10000
+              where: "purchase_amount is not null"
+      
+      - name: cart_product_id
+        description: "Product ID for add_to_cart events"
+        data_type: integer
+      
+      - name: cart_qty
+        description: "Quantity for add_to_cart events"
+        data_type: integer
+        tests:
+          - dbt_utils.accepted_range:
+              min_value: 1
+              max_value: 100
+              where: "cart_qty is not null"
+      
+      - name: search_query
+        description: "Search query for search events"
+        data_type: varchar
+      
+      - name: page_viewed
+        description: "Page viewed for page_view events"
+        data_type: varchar
+      
+      
+      - name: ingestion_ts
+        description: "Timestamp when row was ingested"
+        data_type: timestamp
+        constraints:
+          - type: not_null
+
+
