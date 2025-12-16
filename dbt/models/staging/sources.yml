@@ -1,0 +1,46 @@
+version: 2
+
+sources:
+  - name: bronze
+    description: "Bronze layer Parquet views pointing to lake/bronze/parquet files"
+    database: warehouse
+    schema: main
+    
+    # Default freshness - applies to all tables
+    freshness:
+      warn_after: {count: 12, period: hour}
+      error_after: {count: 24, period: hour}
+    
+    loaded_at_field: ingestion_ts
+    
+    tables:
+      - name: bronze_customers_parquet
+        description: "Customer master data"
+        
+      - name: bronze_products_parquet
+        description: "Product catalog"
+        
+      - name: bronze_stores_parquet
+        description: "Store locations"
+        
+      - name: bronze_suppliers_parquet
+        description: "Supplier information"
+      
+      - name: bronze_orders_header_parquet
+        description: "Order headers (1M+ rows)"
+        
+      - name: bronze_orders_lines_parquet
+        description: "Order line items (4M+ rows)"
+        
+      - name: bronze_events_parquet
+        description: "User behavior events"
+        
+      - name: bronze_shipments_parquet
+        description: "Shipment tracking data"
+        
+      - name: bronze_returns_parquet
+        description: "Product returns"
+        
+      - name: bronze_exchange_rates_parquet
+        description: "Currency exchange rates"
+

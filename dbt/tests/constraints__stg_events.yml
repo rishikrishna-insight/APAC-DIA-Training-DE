@@ -18,6 +18,9 @@ models:
       - name: event_type
         description: "Type of event"
         data_type: varchar
+        tests:
+          - accepted_values:
+              values: ['page_view', 'search', 'add_to_cart', 'purchase']
 
       - name: user_id
         description: "User identifier"

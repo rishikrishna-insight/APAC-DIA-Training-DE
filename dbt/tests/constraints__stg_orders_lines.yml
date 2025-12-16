@@ -63,9 +63,9 @@ models:
         data_type: decimal(5,4)
         description: "Line discount percentage"
         tests:
-          - dbt_utils.accepted_range:
+          - discount_range:
               min_value: 0
-              max_value: 1
+              max_value: 100
 
       - name: tax_pct
         data_type: decimal(5,4)

@@ -1,0 +1,9 @@
+version: 2
+
+models:
+  - name: int_order_items
+    description: "Intermediate: Order line items with calculated amounts"
+    
+  - name: fct_sales
+    description: "Sales fact table with daily grain, incrementally processed"
+

@@ -15,9 +15,15 @@ models:
 
       - name: channel
         data_type: VARCHAR
+        tests:
+          - accepted_values:
+              values: ['web', 'pos']
         
       - name: region
         data_type: VARCHAR
+        tests:
+          - accepted_values:
+              values: ['North', 'South', 'East', 'West']
         
       - name: state
         data_type: VARCHAR

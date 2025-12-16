@@ -182,3 +182,6 @@ lake/bronze/delta/*
 !lake/bronze/delta/customers/sample_*.parquet
 !lake/bronze/parquet/samples/
 !lake/bronze/delta/samples/
+
+# Copilot instructions
+.github

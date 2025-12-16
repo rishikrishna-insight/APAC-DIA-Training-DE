@@ -38,9 +38,15 @@ models:
         
       - name: channel
         data_type: VARCHAR
+        tests:
+          - accepted_values:
+              values: ['web', 'pos']
         
       - name: payment_method
         data_type: VARCHAR
+        tests:
+          - accepted_values:
+              values: ['credit_card', 'paypal', 'bank_transfer', 'gift_card', 'cash']
         
       - name: coupon_code
         data_type: VARCHAR

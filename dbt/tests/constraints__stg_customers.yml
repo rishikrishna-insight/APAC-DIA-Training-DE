@@ -16,6 +16,7 @@ models:
         data_type: VARCHAR
       - name: email
         data_type: VARCHAR
+        tests: [email_format]
       - name: phone
         data_type: VARCHAR
 

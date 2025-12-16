@@ -15,6 +15,9 @@ models:
         
       - name: category
         data_type: VARCHAR
+        tests:
+          - accepted_values:
+              values: ['Electronics', 'Clothing', 'Home', 'Sports', 'Books']
         
       - name: subcategory
         data_type: VARCHAR
@@ -24,6 +27,9 @@ models:
               
       - name: currency
         data_type: VARCHAR
+        tests:
+          - accepted_values:
+              values: ['AUD']
         
       - name: is_discontinued
         data_type: BOOLEAN
